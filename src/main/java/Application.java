@@ -1,8 +1,10 @@
 import java.security.Key;
 
 public class Application {
-    public static long getAilerFunction() {
-        return 12;
+    public static long getAilerFunction(int p, int q) {
+
+        //return 12;
+        return (p-1)*(q-1);
     }
 
     static long power(long a, long b){
@@ -16,14 +18,14 @@ public class Application {
     public static long encrypt(KeyPair publicKey, long message) {
         long res = power(message,publicKey.key);
         System.out.println(res);
-        return  res %publicKey.general;
+        return  res % publicKey.general;
     }
 
     public static long decrypt(KeyPair privateKey, long message) {
         long res = power(message,privateKey.key);
         
         System.out.println(res);
-        return  res %privateKey.general;
+        return  res % privateKey.general;
     }
 
     public static void main(String[] args) {
